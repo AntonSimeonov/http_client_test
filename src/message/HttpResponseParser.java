@@ -16,8 +16,12 @@ public class HttpResponseParser
 		if(response != null)
 		{
 			mResponse = response;
-			mReturnedContent = mResponse.toString();
 			mErrorStatusCode = mResponse.getStatusLine().getStatusCode();
+			
+			if(mErrorStatusCode == 200)
+			{
+				mReturnedContent = mResponse.toString();
+			}
 		}
 		
 	}
